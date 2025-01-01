@@ -24,10 +24,10 @@ jobs:
       run: xcodebuild -resolvePackageDependencies
 
     - name: Build Project
-      run: xcodebuild -scheme Foody -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13,OS=17.0' build
+      run: xcodebuild -scheme Foody -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' build
 
     - name: Run Tests
-      run: xcodebuild test -scheme Foody -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13,OS=17.0'
+      run: xcodebuild test -scheme Foody -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0'
 
     - name: Upload Test Results
       uses: actions/upload-artifact@v3
