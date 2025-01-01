@@ -19,16 +19,16 @@ jobs:
     - name: Build
       run: |
         xcodebuild \
-        -project Foody.xcodeproj \  # Ganti dengan nama file proyek Anda jika berbeda
-        -scheme Foody \             # Ganti dengan nama scheme Anda
+        -project Foody.xcodeproj \
+        -scheme Foody \
         -sdk iphonesimulator \
         -destination 'platform=iOS Simulator,name=iPhone 13,OS=17.0' \
         clean build
     - name: Run tests
       run: |
         xcodebuild \
-        -project Foody.xcodeproj \  # Ganti dengan nama file proyek Anda jika berbeda
-        -scheme Foody \             # Ganti dengan nama scheme Anda
+        -project Foody.xcodeproj \
+        -scheme Foody \
         -sdk iphonesimulator \
         -destination 'platform=iOS Simulator,name=iPhone 13,OS=17.0' \
         test
