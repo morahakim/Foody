@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: pod install
+    - name: Build
+      run: |
+        xcodebuild \
+        -workspace Foody.xcworkspace \
+        -scheme Foody \               
+        -sdk iphonesimulator \
+        -destination 'platform=iOS Simulator,name=iPhone 13,OS=17.0' \
+        clean build
+    - name: Run tests
+      run: |
+        xcodebuild \
+        -workspace Foody.xcworkspace \ 
+        -scheme Foody \               
+        -sdk iphonesimulator \
+        -destination 'platform=iOS Simulator,name=iPhone 13,OS=17.0' \
+        test
+
