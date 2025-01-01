@@ -16,20 +16,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Install dependencies
     - name: Build
       run: |
         xcodebuild \
-        -workspace Foody.xcworkspace \
-        -scheme Foody \               
+        -project Foody.xcodeproj \  # Ganti dengan nama file proyek Anda jika berbeda
+        -scheme Foody \             # Ganti dengan nama scheme Anda
         -sdk iphonesimulator \
         -destination 'platform=iOS Simulator,name=iPhone 13,OS=17.0' \
         clean build
     - name: Run tests
       run: |
         xcodebuild \
-        -workspace Foody.xcworkspace \ 
-        -scheme Foody \               
+        -project Foody.xcodeproj \  # Ganti dengan nama file proyek Anda jika berbeda
+        -scheme Foody \             # Ganti dengan nama scheme Anda
         -sdk iphonesimulator \
         -destination 'platform=iOS Simulator,name=iPhone 13,OS=17.0' \
         test
+
