@@ -5,9 +5,9 @@ name: CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -21,13 +21,14 @@ jobs:
       run: xcodebuild -resolvePackageDependencies
 
     - name: Build Project
-      run: xcodebuild -scheme YourSchemeName -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' build
+      run: xcodebuild -scheme YourSchemeName -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest' build
 
     - name: Run Tests
-      run: xcodebuild test -scheme YourSchemeName -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest'
+      run: xcodebuild test -scheme YourSchemeName -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest'
 
     - name: Upload Test Results
       uses: actions/upload-artifact@v3
       with:
         name: test-results
         path: build/reports/tests
+
